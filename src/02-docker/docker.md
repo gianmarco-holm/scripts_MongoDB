@@ -9,11 +9,11 @@
 ## check mongodb
 
 ```sh
-    docker-compose ups
+    docker-compose ps
 ```
 
 ## Conecction
 
 ```sh
-    mongodb://localhost:27017
+    mongodb://admin:admin@localhost:27017
 ```
