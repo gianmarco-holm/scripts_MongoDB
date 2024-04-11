@@ -1,0 +1,12 @@
+use('sample_training')
+
+//Elimino un atributo
+db.zips.updateMany({
+    city: 'CLEVELAND'
+}, {
+    $unset: {
+        my_atrib: ''
+    }
+})
+
+db.zips.find({city: 'CLEVELAND'})

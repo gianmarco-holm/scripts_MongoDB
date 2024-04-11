@@ -1,0 +1,36 @@
+use('store')
+
+db.products.drop()
+
+db.products.insertMany([
+    {
+        _id: 1,
+        product: "Producto 1",
+        price: 1000
+    },
+    {
+        _id: 2,
+        product: "Producto 2",
+        price: 1200
+    },
+    {
+        _id: 3,
+        product: "Producto 3",
+        price: 1300
+    },
+    {
+        _id: 1,
+        product: "Producto 1",
+        price: 1400
+    },
+    {
+        _id: 4,
+        product: "Producto 4",
+        price: 1400
+    }
+],
+{
+    ordered: false
+})
+
+db.products.find()

@@ -1,0 +1,12 @@
+use('sample_training')
+
+//Agrego un nuevo atributo
+db.zips.updateMany({
+    city: 'CLEVELAND'
+}, {
+    $set: {
+        myAtrib: 'Hola'
+    }
+})
+
+db.zips.find({city: 'CLEVELAND'})

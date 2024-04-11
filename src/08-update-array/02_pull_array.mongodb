@@ -1,0 +1,10 @@
+use("store")
+
+//Voy a quitar un elemento a un array en todos los documentos
+db.inventory.updateMany({}, {
+    $pull: {
+        tags:'book'
+    }
+})
+
+db.inventory.find()

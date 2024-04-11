@@ -1,0 +1,12 @@
+use("store")
+
+//Voy a insertar un elemento a un atributo de tipo array
+db.inventory.updateOne({
+    _id: 2
+}, {
+    $push: {
+        tags:'headphone'
+    }
+})
+
+db.inventory.find()

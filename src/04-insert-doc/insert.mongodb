@@ -1,0 +1,14 @@
+use('store')
+
+db.products.insertOne({
+    name: "Product 4",
+    price: 1500
+})
+
+db.products.insertOne({
+    _id: 3,
+    name: "Product 3",
+    price: 1400
+})
+
+db.products.find()

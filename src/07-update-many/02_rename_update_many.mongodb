@@ -1,0 +1,12 @@
+use('sample_training')
+
+//Cambio el nombre del atributo
+db.zips.updateMany({
+    city: 'CLEVELAND'
+}, {
+    $rename: {
+        myAtrib: 'my_atrib'
+    }
+})
+
+db.zips.find({city: 'CLEVELAND'})

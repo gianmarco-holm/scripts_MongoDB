@@ -1,0 +1,12 @@
+use("store")
+
+//Voy a eliminar 2 elementos a un array, para ello se usa in
+db.inventory.updateMany({}, {
+    $pull: {
+        tags: {
+            $in: ['bag', 'book']
+        }
+    }
+})
+
+db.inventory.find()
