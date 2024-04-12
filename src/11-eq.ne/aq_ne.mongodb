@@ -1,0 +1,18 @@
+use('store')
+
+// eq que es equals ya viene implicito
+// db.inventory.find({'qty':15})
+
+// de manera explicita seria
+// db.inventory.find({'qty': {$eq: 15}})
+
+// ne o not equals si se debe realizar de manera explicita
+db.inventory.updateMany({
+    'item.name': { $ne: 'ab' }
+}, {
+    $inc: {
+        'qty': 10
+    }
+})
+
+db.inventory.find()

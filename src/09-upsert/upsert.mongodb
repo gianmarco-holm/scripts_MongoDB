@@ -1,0 +1,44 @@
+use('store')
+
+// Voy a insertar un elemento
+// db.iot.insertOne({
+//     sensor: "A001",
+//     date: "2022-01-03",
+//     reading:[2023]
+// })
+
+// Voy a actualizar un elemento
+// db.iot.updateOne({
+//     sensor: 'A001',
+//     date: '2022-01-03'
+// }, {
+//     $push: {
+//         reading: [2024]
+//     }
+// })
+
+// Como vimos anteriormente se agrego una array dentro de otra
+// Lo cual no queremos asi que la eliminaremos con pop
+// db.iot.updateOne({
+//     sensor: 'A001',
+//     date: '2022-01-03'
+// }, {
+//     $pop: {
+//         reading: 1
+//     }
+// })
+
+// Ahora usaremos UPSERT, que sirve para verificar si el documento existe
+// Si no existe crea uno y si ya existe lo actualiza
+db.iot.updateOne({
+    sensor: 'A001',
+    date: '2022-01-03'
+}, {
+    $push: {
+        reading: 2025
+    }
+}, {
+    upsert: true
+})
+
+db.iot.find()
