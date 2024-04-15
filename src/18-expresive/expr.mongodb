@@ -1,0 +1,31 @@
+// use('store')
+
+// Gastos mayores a 100
+// db.monthlyBudget.find({spent: {$gte: 100}})
+
+// gastos mayores a 100 con expr
+// db.monthlyBudget.find({
+//     $expr: {
+//         $gte: ['$spent', 100]
+//     }
+// })
+
+// Gastos superiores a presupuesto
+// db.monthlyBudget.find({
+//     $expr: {
+//         $gte: ['$spent', '$budget']
+//     }
+// })
+
+// Viajes que comenzaron e iniciaron al mismo tiempo
+// y que tienen una duracion de 1200
+use('sample_training')
+
+db.trips.find({
+    $expr: {
+        $and: [
+            {$eq: ['$start station id', '$end station id']},
+            {$gte: ['$tripduration', 1200]}
+        ]
+    }
+})

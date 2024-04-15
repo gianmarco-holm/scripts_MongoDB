@@ -1,0 +1,9 @@
+use('sample_training')
+
+db.trips.find(
+    // query
+    {tripduration: {$gte: 200}},
+    // proyection
+    // 1 para msotrar y 0 para ocultar (solo sirve para el id)
+    { tripduration: 1, usertype: 1, _id: 0}
+)

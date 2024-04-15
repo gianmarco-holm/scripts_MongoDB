@@ -1,0 +1,7 @@
+use('store')
+
+// Buscamos todas las expresiones que tienen line
+db.inventory.find({
+    // Para buscar un subdocumento los campos se colocan en comillas
+    "item.description": { $regex: /line/ }
+})

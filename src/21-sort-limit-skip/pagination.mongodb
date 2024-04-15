@@ -1,0 +1,7 @@
+use('store')
+
+// se juega con skip para pasar de pagina en pagina
+db.categories
+  .find()
+  .skip(2)
+  .limit(2)

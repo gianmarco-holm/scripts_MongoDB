@@ -1,0 +1,15 @@
+use('sample_training')
+
+// sort
+// 1 = ASC
+// -1 = DESC
+
+// limit
+// limita a los 2 con mayor densis poblacional o pop
+db.zips
+  .find({pop: {$gte: 100}})
+  .sort({pop: -1})
+  .limit(2)
+
+// skip
+// Para paginacion

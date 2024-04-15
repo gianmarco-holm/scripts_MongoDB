@@ -1,0 +1,20 @@
+use('sample_airbnb')
+
+db.listingsAndReviews.find({
+  amenities: 'Wifi'
+}, {
+  amenities: 1,
+  price: 1,
+  "address.country": 1,
+  _id: 0
+})
+
+// Agregate trabaja con capas, cada capa es el input de la siguiente
+// [], [], []
+db.listingsAndReviews.aggregate(
+  [
+    {$match: {amenities: 'Wifi'}},
+    {$project: {amenities: 1, price: 1, "address.country": 1}},
+    { $group: {_id: '$address.country', count: {$sum: 1}}}
+  ]
+)

@@ -1,0 +1,23 @@
+use('store')
+
+// $in
+// db.inventory.find({qty: {$in: [20,25]}})
+
+// buscamos los campos que tengan book y electronics
+// db.inventory.find({tags: { $in: ['book', 'electronics'] }})
+
+// nin busca campos que no tengan books o electronics
+// db.inventory.find({tags: { $nin: ['book', 'electronics'] }})
+
+// all es como un Y, que tenga book y electronics al mismo tiempo
+//db.inventory.find({tags: { $all: ['book', 'electronics'] }})
+
+// Buscar elementos que tengan 2 elementos en el array
+// db.inventory.find({tags: { $size: 2 }})
+
+// elemMatch El operador $elemMatch en MongoDB se utiliza para especificar criterios de selección de documentos donde al menos un elemento en un array cumple con las condiciones especificadas.
+db.survey.find({ results: { $elemMatch: {
+    product: 'xyz',
+    score: {$gte: 7}
+    }}
+})

@@ -1,0 +1,23 @@
+use('sample_training')
+
+// Buscar la primera persona, osea posicion 0 que
+// se llame zuckerberg
+db.companies.find({
+    'relationships.0.person.last_name': 'Zuckerberg'
+}, {
+    name: 1,
+    relationships: 1
+})
+
+// Buscar todas la spersonas que se llamen Mark
+
+db.companies.find({
+    relationships: {
+        $elemMatch: {
+            'person.first_name': 'Mark'
+        }
+    }
+}, {
+    name: 1,
+    relationships: 1
+})
